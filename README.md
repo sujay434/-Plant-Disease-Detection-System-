@@ -1,93 +1,50 @@
+🌿 Plant Disease Detection System
+🚀 Overview
+The Plant Disease Detection System is a MERN stack and Machine Learning-based application designed to help farmers diagnose crop diseases efficiently. By leveraging Deep Learning (ResNet50), the system provides accurate classification of plant diseases.
 
+🔬 Tech Stack
+Frontend: React (UI for user interaction)
+Backend: FastAPI (handling API requests)
+Database: MongoDB (storing user data)
+Machine Learning: ResNet50 (Deep Learning model for classification)
+🎯 Features
+📸 Image-based Disease Classification using CNN (ResNet50)
+🛠 FastAPI Backend for handling model inference
+📂 MongoDB Integration for user data storage
+📈 Achieved high accuracy:
+✅ Training Accuracy: 88.99%
+✅ Validation Accuracy: 90.32%
+🌍 Future Enhancements:
+💽 Real-time monitoring
+🗣 Multilingual support
+🌾 Expansion to other crops
+📚 Project Structure
+/ Plant-Disease-Detection-System
+  |-- frontend/         # React Frontend
+  |-- backend/          # FastAPI Backend
+  |-- model/            # ResNet50 Model & Scripts
+  |-- data/             # Dataset (ignored in .gitignore)
+  |-- README.md         # Project Documentation
+🔄 Installation & Setup
+1⃣ Clone the repository
+git clone https://github.com/BharathJP-72/Plant-Disease-Detection-System.git
+cd Plant-Disease-Detection-System
+2⃣ Install dependencies
+Frontend (React)
+cd frontend
+npm install
+npm start
+Backend (FastAPI)
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
+🎯 Usage
+1⃣ Upload an image of a plant leaf.
+2⃣ The ResNet50 model will classify the disease.
+3⃣ Users get detailed disease information and suggestions.
 
-import { Element } from "react-scroll";
-import Button from "../components/Button.jsx";
-import { useState } from "react";
-
-const Hero = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [result, setResult] = useState(""); // To store prediction result
-
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-  };
-
-  const handleButtonClick = () => {
-    document.getElementById('fileInput').click();
-  };
-
-  const handleSubmit = async () => {
-    if (!selectedFile) return;
-  
-    const formData = new FormData();
-    formData.append("file", selectedFile);
-  
-    try {
-      const response = await fetch("http://127.0.0.1:8000/predict/", {
-        method: "POST",
-        body: formData,
-      });
-  
-      const data = await response.json();
-      console.log("Backend Response:", data);  // Log the backend response
-  
-      setResult(data.class || "Error in prediction");
-    } catch (error) {
-      console.error("Error:", error);
-      setResult("Error in prediction");
-    }
-  };
-  
-
-  return (
-    <section className="relative pt-60 pb-40 max-lg:pt-52 max-lg:pb-36 max-md:pt-36 max-md:pb-32">
-      <Element name="hero">
-        <div className="container">
-          <div className="relative z-2 max-w-512 max-lg:max-w-388">
-            <div className="caption small-2 uppercase text-p3">
-              {/* Video Editing */}
-            </div>
-            <h1 className="mb-6 h1 text-p4 uppercase max-lg:mb-7 max-lg:h2 max-md:mb-4 max-md:text-5xl max-md:leading-12">
-            FarmShield
-            </h1>
-            <h2 className="max-w-440 mb-14 body-1 max-md:mb-10">
-            "Protect Your Crops with Precision"
-            </h2>
-            <p>
-            Instant Disease Detection and Tailored Remedies
-            </p>
-            <input
-              type="file"
-              id="fileInput"
-              style={{ display: 'none' }}
-              onChange={handleFileChange}
-            />
-            <Button className="btn" onClick={handleButtonClick} icon="/images/zap.svg">
-              Diagnose 
-            </Button>
-
-            {selectedFile && (
-              <div className="mt-4">
-                <p>Selected Image: {selectedFile.name}</p>
-                <button className="btn" onClick={handleSubmit}>
-                  Classify Image
-                </button>
-              </div>
-            )}
-
-            {result && <p className="mt-4">Prediction: {result}</p>}
-          </div>
-          <div className="absolute -bottom-3 right-[calc(50%-650px)] w-[600px] pointer-events-none hero-img_res">
-            <img
-              src="/images/hero33.png"
-              className="size-600 max-lg:h-auto"
-              alt="hero"
-            />
-          </div>
-        </div>
-      </Element>
-    </section>
-  );
-};
-
-export default Hero;
+🐝 API Endpoints
+POST /predict - Upload an image and get a prediction.
+GET /health - Check if the backend is running.
+📚 License
+This project is licensed under the MIT License.

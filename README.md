@@ -1,7 +1,7 @@
 🌿 Plant Disease Detection System
 🚀 Overview
 
-The Plant Disease Detection System is an AI-powered web application built using the MERN Stack, FastAPI, and Deep Learning to identify diseases in plant leaves. The application enables farmers and agricultural professionals to upload leaf images and receive instant disease predictions along with treatment recommendations.
+The Plant Disease Detection System is an AI-powered web application built using the python Stack, FastAPI, and Deep Learning to identify diseases in plant leaves. The application enables farmers and agricultural professionals to upload leaf images and receive instant disease predictions along with treatment recommendations.
 
 The deep learning model is based on ResNet50, which provides high classification accuracy across multiple plant disease categories.
 
